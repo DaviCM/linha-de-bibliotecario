@@ -49,14 +49,8 @@ def adicionarAoJSON(data):
 # retorna uma string contendo apenas caracteres alfanuméricos, se o check der certo.
 # Usada para pegar nome e gênero do livro.
 def pegarSTR(inputValue):
-    while True:
-        string = (input(inputValue).title()).strip()
-        if (''.join(string)).isalpha() == True:
-            return string
-        else:
-            continuar()
-            continue
-
+    string = (input(inputValue).title()).strip()
+    return string
 
 # Lógica para armazenar múltiplos autores em uma lista com visualização agradável para o usuário
 def pegarAutores():
