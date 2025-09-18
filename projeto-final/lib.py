@@ -4,7 +4,7 @@ import json
 
 def continuar():
     system('cls')
-    print('Opção inválida. Tente novamente')
+    print('Opção inválida. Tente novamente.')
     sleep(0.5)
     system('cls')
 
@@ -63,10 +63,9 @@ def pegarAutores():
             continue
 
 
-def cadastrar():
+def cadastrar(retornar=False):
     data, livros = pegarJSON()
     autores = []
-    c = 1
     
     while True:
         system('cls')
@@ -87,14 +86,19 @@ def cadastrar():
         system('cls')
         genero = (input('Digite o gênero do livro: ').title()).strip()
         novoLivro = {nome : [autores, genero]}
-        data.append(novoLivro)
-        adicionarAoJSON(data)
-    
         break
 
     system('cls')    
     print(f'Novo livro cadastrado: {novoLivro}')
     sleep(1)
+    system('cls')
+
+    if retornar == False:
+        data.append(novoLivro)
+        adicionarAoJSON(data)
+    
+    else:
+        return novoLivro
 
 
 def editar():
@@ -143,9 +147,9 @@ def editar():
                         break
 
                     case '3':
-                        data.pop(opt - 1)
-                        data.insert(opt - 1, cadastrar())
+                        data[opt - 1] = cadastrar(retornar=True)
                         adicionarAoJSON(data)
+                        sleep(0.5)
                         break
 
                     case '4':
@@ -157,7 +161,8 @@ def editar():
                         continuar()
                         continue
         else:
-            print('Retornando ao menu principal')
+            system('cls')
+            print('Retornando ao menu principal.')
             sleep(0.5)
             break
 
@@ -219,7 +224,8 @@ def remover():
                         continuar()
                         continue
         else:
-            print('Retornando ao menu principal')
+            system('cls')
+            print('Retornando ao menu principal.')
             sleep(0.5)
             break
 
