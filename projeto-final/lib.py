@@ -46,7 +46,6 @@ def adicionarAoJSON(data):
         json.dump(data, file, ensure_ascii=False, indent=4)
 
 
-# retorna uma string contendo apenas caracteres alfanuméricos, se o check der certo.
 # Usada para pegar nome e gênero do livro.
 def pegarSTR(inputValue):
     string = (input(inputValue).title()).strip()
