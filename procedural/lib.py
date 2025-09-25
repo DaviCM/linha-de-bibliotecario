@@ -16,7 +16,7 @@ def pegarJSON():
     try:
         livros = []
         # Adicionar o arquivo JSON à uma lista 'data', que contém todos os dicts
-        with open('projeto-final/db.json', 'r', encoding='utf-8') as file:
+        with open('procedural/db.json', 'r', encoding='utf-8') as file:
             data = (json.load(file))
         
         # Armazena todas as keys (nomes dos livros) em uma lista 'livros', para acesso mais fácil nas outras funções
@@ -40,7 +40,7 @@ def pegarJSON():
 # Recebe uma lista 'data' e adiciona ela ao JSON com W, reescrevendo toda a DB.
 # Melhor que append, pois ele adiciona uma outra lista e altera a indentação.
 def adicionarAoJSON(data):
-    with open('projeto-final/db.json', 'w', encoding='utf-8') as file:
+    with open('procedural/db.json', 'w', encoding='utf-8') as file:
         # Data sempre será uma lista, logo ele irá adicionar os valores à lista mesmo que ela se inicializar vazia
         # Facilidade de manutenção e padronização das escritas
         json.dump(data, file, ensure_ascii=False, indent=4)
@@ -50,6 +50,7 @@ def adicionarAoJSON(data):
 def pegarSTR(inputValue):
     string = (input(inputValue).title()).strip()
     return string
+
 
 # Lógica para armazenar múltiplos autores em uma lista com visualização agradável para o usuário
 def pegarAutores():
