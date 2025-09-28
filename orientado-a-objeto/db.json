@@ -1,34 +1,54 @@
-[    {
-        "Teste": [
-            [
-                "AAAAAA"
+[
+    {
+        "1": {
+            "nome": "Teste",
+            "autores": [
+                "Teste A. Teste",
+                "Teste"
             ],
-            "AAAAAAAAA"
-        ]
+            "genero": "Testar"
+        }
     },
     {
-        "Json Avançado": [
-            [
-                "Karython 60"
+        "2": {
+            "nome": "Sr. Dos Pastéis",
+            "autores": [
+                "Pastearia São Gonçalo"
             ],
-            "Ação"
-        ]
+            "genero": "Receitas"
+        }
     },
     {
-        "Senhor Dos Anéis": [
-            [
-                "J R R Tolkien"
+        "3": {
+            "nome": "Recadastro",
+            "autores": [
+                "Re",
+                "Cadastro"
             ],
-            "Aventura Épica"
-        ]
+            "genero": "Senshado"
+        }
     },
     {
-        "Ordem E Gritaria": [
-            [
-                "Brasil",
-                "Aaaaaa"
+        "4": {
+            "nome": "Colina Kokuriko",
+            "autores": [
+                "Shimada Arisu"
             ],
-            "Erro"
-        ]
+            "genero": "Sr Das Formigas"
+        }
+    },
+    {
+        "7": {
+            "nome": "B",
+            "autores": [
+                "Bbb",
+                "B",
+                "B",
+                "Bb",
+                "B"
+            ],
+            "genero": "S"
+        }
     }
 ]
+
