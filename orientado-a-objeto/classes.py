@@ -21,6 +21,13 @@ import json
 # Caminho do atributo: atribuição (criação do obj) - construtor - getter - setter
 # A setter recebe o valor que foi atribuido na criação do objeto e iguala ele ao atributo.
 
+class CadastrarLivroError(Exception):
+    def __init__(self, msg='Passou parâmetro inexistente para modo. Opções são (append) e (replace).'):
+        self.msg = msg
+        super.__init__(self.msg)
+
+
+
 class Livro:
     def __init__(self, nome, autores, genero, id):
         self.__id = id # Método getter
@@ -120,9 +127,11 @@ class Biblioteca:
         if mode == 'replace':
             self.__data[id] = novoLivro.getDict()
             self.adicionarAoJSON(self.__data)
-        else:
+        elif mode == 'append':
             self.__data.append(novoLivro.getDict())
             self.adicionarAoJSON(self.__data)
+        else:
+            raise CadastrarLivroError
     
     
     def visualizarLivros(self, returnID=False):
@@ -142,19 +151,16 @@ class Biblioteca:
             return int(id)
         
         
-    def IDParaInfo(self, id, autores=False, genero=False):
-        data = self.pegarJSON()
-        
+    def IDParaInfo(data, id, nome=True, autores=False, genero=False):
+        parNames = {'nome' : nome, 'autores' : autores, 'genero' : genero}
+    
         for dicts in data:
             if str(id) in dicts: # Preciso checar se o id fornecido é key, para poder manipular
                                 # caso contrário, teria que manipular com um intervalo fixo - o que gera conflito
                                 # com IDs que não são subsequentes.
-                if autores == True:
-                    return dicts[str(id)]['autores']
-                elif genero == True:
-                    return dicts[str(id)]['genero']
-                else:
-                    return dicts[str(id)]['nome']
+                for i in (parNames.keys()):
+                        if parNames.get(i) == True:
+                            yield dicts[str(id)][i]
 
     
     def editarLivros(self, id, modified, toEdit):
